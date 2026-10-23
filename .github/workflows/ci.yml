@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Compile Java (TestingCode.java)
+    name: Enterprise Java Build & Test
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +22,23 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Compile Java Application
+      - name: Simulate Enterprise Dependency Resolution (1,500+ Lines of Clutter)
         run: |
-          echo "Starting Java compilation..."
+          echo "=========================================================="
+          echo "STARTING VERBOSE ENTERPRISE DEPENDENCY RESOLUTION"
+          echo "=========================================================="
+          # Generate ~1,500 lines of typical CI clutter: download tickers, npm progress, passing tests
+          for i in $(seq 1 400); do
+            echo "Downloading: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-$i/3.2.0/spring-boot-starter-$i-3.2.0.jar"
+            echo "Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-$i/3.2.0/ (520 KB at 12.4 MB/s)"
+            echo "npm http fetch GET 200 https://registry.npmjs.org/@enterprise/module-$i 32ms"
+            echo "PASS src/test/java/com/demo/ServiceUnitTest$i.java (took 14ms)"
+          done
+          echo "=========================================================="
+          echo "DEPENDENCY RESOLUTION COMPLETED - PROCEEDING TO COMPILE"
+          echo "=========================================================="
+
+      - name: Compile Java Application (Fails with Syntax Error)
+        run: |
+          echo "Compiling src/main/java/com/demo/TestingCode.java..."
           javac src/main/java/com/demo/TestingCode.java
