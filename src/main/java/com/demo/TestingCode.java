@@ -11,7 +11,7 @@ public class TestingCode {
         names.add("Charlie");
 
         // Deliberate minor syntax error: missing closing parenthesis ')'
-        System.out.println("Total names: " + names.size();
+        System.out.println("Total names: " + names.size())
 
         System.out.println("Execution finished.");
     }
