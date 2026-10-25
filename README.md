@@ -1,4 +1,4 @@
-# Java Sample Test App
+# Java Sample Test App #
 
 A sample repository used to demonstrate the **Central AI DevOps Failure Triage Agent**.
 
